@@ -1,0 +1,52 @@
+@use "sass:string";
+@use "sass:list";
+@import "../variables/layout";
+
+/*
+ * Media breakpoint mixin
+ *
+ * Examples:
+ *
+ * @include media-breakpoint('sm') {}
+ * @include media-breakpoint('sm', 'orientation: landscape') {}
+ * @include media-breakpoint('sm-up') {}
+ * @include media-breakpoint('md-down') {}
+ * @include media-breakpoint('lg') {}
+ * @include media-breakpoint('min-width: 420px') {}
+ */
+
+@function get-mq($value) {
+  @each $mb-name, $mb-value in $media-breakpoints {
+    @if string.index($value, $mb-name) {
+      @if string.index($value, 'up') {
+        @return '(min-width: ' + $mb-value + ')';
+      }
+      @else if string.index($value, 'down'){
+        @return '(max-width: ' + ($mb-value - 1) + ')';
+      }
+      @else {
+        $i: index(($media-breakpoints), ($mb-name $mb-value));
+
+        @if $i != 0 {
+          @return '(min-width: ' + $mb-value + ') and (max-width: ' + (list.nth(nth($media-breakpoints, $i - 1), 2) - 1) + ')';
+        }
+
+        @return '(min-width: ' + $mb-value + ')';
+      }
+    }
+  }
+
+  @return '(' + $value + ')'
+}
+
+@mixin media-breakpoint($values...) {
+  $string: 'screen';
+
+  @each $value in $values {
+    $string: $string + ' and ' + get-mq($value);
+  }
+
+  @media #{$string} {
+    @content;
+  }
+}

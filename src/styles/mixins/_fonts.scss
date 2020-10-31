@@ -1,0 +1,14 @@
+@import "../variables/fonts";
+
+/*
+ * Font mixin
+ *
+ * Example:
+ *
+ * @include font('h1');
+ */
+@mixin font($name: 'base') {
+  @each $rule-name, $rule-value in map-get($fonts, $name) {
+    #{$rule-name}: $rule-value;
+  }
+}

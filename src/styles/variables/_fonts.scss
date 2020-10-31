@@ -1,0 +1,40 @@
+// Font families
+$font-family-base: 'Trebuchet MS', sans-serif !default;
+$font-family-heading: 'Exo 2.0', sans-serif !default;
+
+// Font sizes
+$font-size-base: 16px !default;
+$line-height-base: 19 / 16 !default;
+
+$font-size-tiny: 14px !default;
+$line-height-tiny: 16 / 14 !default;
+
+$font-size-small: 13px !default;
+$line-height-small: 15 / 13 !default;
+
+$font-size-h1: 36px !default;
+$line-height-h1: 44 / 36 !default;
+
+$font-size-h2: 48px !default;
+$line-height-h2: 56 / 48 !default;
+
+$font-size-h3: 24px !default;
+$line-height-h3: 28 / 24 !default;
+
+// Font map
+$fonts: (
+
+    // Base
+    base:  ('font-family': $font-family-base, 'font-size': $font-size-base, 'line-height': $line-height-base, 'font-weight': normal),
+
+    // Text
+    tiny:        ('font-size': $font-size-tiny,  'line-height': $line-height-tiny,  'font-weight': normal),
+    small:       ('font-size': $font-size-small, 'line-height': $line-height-small, 'font-weight': normal),
+    text-weight: ('font-size': 42px, 'line-height': 38 / 42),
+    text-unit:   ('font-size': 21px, 'line-height': 22 / 21),
+
+    // Headings
+    h1: ('font-size': $font-size-h1, 'line-height': $line-height-h1, 'font-weight': 100, 'font-family': $font-family-heading),
+    h2: ('font-size': $font-size-h2, 'line-height': $line-height-h2, 'font-weight': bold),
+    h3: ('font-size': $font-size-h3, 'line-height': $line-height-h3, 'font-weight': bold),
+) !default;

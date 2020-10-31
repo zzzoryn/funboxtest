@@ -1,0 +1,12 @@
+// Container
+$container-width: 1220px !default;
+$container-padding: 10px !default;
+
+// Media breakpoints
+$media-breakpoints: (
+    xl: 1200px,
+    lg: 992px,
+    md: 768px,
+    sm: 620px,
+    xs: 320px
+) !default;
