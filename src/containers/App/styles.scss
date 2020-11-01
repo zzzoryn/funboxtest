@@ -1,8 +1,9 @@
 @import "../../styles/index";
 
 .app {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
+  height: 100vh; // For ie11
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -14,15 +15,8 @@
     justify-content: center;
     width: 100%;
     max-width: $container-width;
+    max-height: 100vh; // For ie11
     padding: $container-padding;
-    //
-    //@include media-breakpoint('md') {
-    //  padding: $container-padding-md;
-    //}
-    //
-    //@include media-breakpoint('lg-up') {
-    //  padding: $container-padding-lg;
-    //}
   }
 
   &__heading {
